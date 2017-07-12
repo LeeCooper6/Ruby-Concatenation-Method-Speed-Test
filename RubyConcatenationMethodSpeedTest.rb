@@ -14,6 +14,9 @@ interpolation_results=[]
 
 # Displays results of tests.
 #   Parameters:
+#     results: Array of Numbers: List of all test results.
+#     verbose: Boolean: Whether you want to print all test results.
+#   Returns: Prints the number of tests run, the results of the tests (if verbose), the total time taken to complete all tests, the maximum time taken to complete a test, the minimum time taken to complete a test, and the average time to complete each test.
 def display_results(results, verbose = false)
   sum = 0
   results.each do |result|
@@ -65,8 +68,10 @@ tests.times do
 end
 
 # Display all test results.
+puts "Used #{iterations} iterations per test and #{tests} tests per concatenation method."
 puts ""
 [["Plus Concatenation (a + b)", plus_results], ["Chevron Concatenation (a << b)", chevron_results], ["Interpolation (\#{a} \#{b})", interpolation_results]].each do |results|
+  puts "#{results[0]}:"
   display_results(results[1], false)
   puts ""
 end
